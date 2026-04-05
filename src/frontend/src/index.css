@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    /* Page background: icy blue */
+    --background: 0.94 0.04 240;
+    --foreground: 0.22 0.05 240;
+    /* Main card: white */
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.05 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.05 240;
+    /* Deep navy primary */
+    --primary: 0.28 0.07 240;
+    --primary-foreground: 0.98 0 0;
+    /* Pale blue secondary */
+    --secondary: 0.92 0.05 240;
+    --secondary-foreground: 0.28 0.07 240;
+    --muted: 0.92 0.04 240;
+    --muted-foreground: 0.5 0.04 240;
+    /* Gold accent */
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.15 0.03 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.86 0.05 240;
+    --input: 0.86 0.05 240;
+    --ring: 0.6 0.1 240;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-18px) translateX(8px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-8px);
+  }
+  75% {
+    transform: translateY(-22px) translateX(4px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes balloonRise {
+  0% {
+    transform: translateY(100px) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60vh) scale(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(20deg);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.font-script {
+  font-family: "Dancing Script", "Great Vibes", cursive;
+}
+
+.font-great-vibes {
+  font-family: "Great Vibes", "Dancing Script", cursive;
+}
+
+.hero-heading {
+  animation: heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.hero-sub {
+  animation: heroFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.hero-message {
+  animation: heroFadeIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+  opacity: 0;
+}
+
+.cards-row {
+  animation: heroFadeIn 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  opacity: 0;
+}
+
+.wish-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s
+    ease;
+}
+
+.wish-card:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 16px 40px rgba(30, 61, 90, 0.18);
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c9a35a,
+    #f0d090,
+    #c9a35a,
+    #e8c070,
+    #c9a35a
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -12px;
+  animation: confettiFall linear infinite;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.balloon-float {
+  animation: balloonFloat ease-in-out infinite;
+}
+
+.sparkle-twinkle {
+  position: absolute;
+  animation: twinkle ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+.heart-pulse {
+  position: absolute;
+  animation: heartbeat ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
